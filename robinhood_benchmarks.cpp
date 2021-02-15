@@ -1,15 +1,31 @@
 #include <benchmark/benchmark.h>
 #include "robin_hood.h"
-struct Int_hash_function
+#include "Handle_hash_function.h"
+
+class Data
 {
-    template <typename H>
-    std::size_t operator()(const H& h) const
+};
+
+using Handle = std::vector<Data>::iterator;
+
+static std::vector<Handle> handles;
+
+class Setup
+{
+public:
+    Setup()
     {
-        return h;
+        for(int i=0; i<50'000; ++i)
+        {
+            Handle h(new Data());
+            handles.push_back(h);
+        }
     }
 };
 
-using Map = robin_hood::unordered_map<int,int,Int_hash_function>;
+Setup setup;
+
+using Map = robin_hood::unordered_map<Handle,int,CGAL::Handle_hash_function>;
 
 static void construction(benchmark::State& state) {
   for (auto _ : state) {
@@ -23,12 +39,13 @@ static void insert(benchmark::State& state) {
   Map map;
   map.reserve(512);
   for (auto _ : state) {
-     for(int i=0; i<50'000; ++i)
-        map[i];
+     for(int i=0; i<50'000; ++i) {
+        const Handle& h=handles[i];
+        map[h];
+     }
      benchmark::DoNotOptimize(map.size());
   }
 }
-
 
 BENCHMARK(construction);
 BENCHMARK(insert);

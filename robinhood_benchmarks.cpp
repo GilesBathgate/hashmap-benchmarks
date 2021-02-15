@@ -1,5 +1,5 @@
 #include <benchmark/benchmark.h>
-#include "robin_hood.h"
+#include "Unique_hash_map_robinhood.h"
 #include "Handle_hash_function.h"
 
 class Data
@@ -25,19 +25,17 @@ public:
 
 Setup setup;
 
-using Map = robin_hood::unordered_flat_map<Handle,int,CGAL::Handle_hash_function>;
+using Map = CGAL::Unique_hash_map<Handle,int,CGAL::Handle_hash_function>;
 
 static void construction(benchmark::State& state) {
   for (auto _ : state) {
-     Map map;
-     map.reserve(handles.size());
+     Map map(0,handles.size());
      benchmark::DoNotOptimize(map.size());
   }
 }
 
 static void insert(benchmark::State& state) {
-  Map map;
-  map.reserve(handles.size());
+  Map map(0,handles.size());
   for (auto _ : state) {
      for(const auto& h: handles) {
         map[h];
@@ -48,8 +46,7 @@ static void insert(benchmark::State& state) {
 }
 
 static void update(benchmark::State& state) {
-  Map map;
-  map.reserve(handles.size());
+  Map map(0,handles.size());
   for(const auto& h: handles)
         map[h];
 

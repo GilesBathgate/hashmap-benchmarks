@@ -1,5 +1,5 @@
 CXX=clang++
-CXXFLAGS=-lbenchmark
+CXXFLAGS=-O2 -lbenchmark
 COMPARE=python3 /usr/share/benchmark/compare.py
 
 all: unique_benchmarks robinhood_benchmarks

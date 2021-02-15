@@ -29,17 +29,18 @@ using Map = CGAL::Unique_hash_map<Handle,int,CGAL::Handle_hash_function>;
 
 static void construction(benchmark::State& state) {
   for (auto _ : state) {
-     Map map(0,512);
+     Map map(0,handles.size());
      benchmark::DoNotOptimize(map.size());
   }
 }
 
 static void insert(benchmark::State& state) {
-  Map map(0,512);
+  Map map(0,handles.size());
   for (auto _ : state) {
      for(const auto& h: handles) {
         map[h];
      }
+     map.clear();
      benchmark::DoNotOptimize(map.size());
   }
 }

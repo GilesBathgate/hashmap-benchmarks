@@ -30,18 +30,19 @@ using Map = robin_hood::unordered_map<Handle,int,CGAL::Handle_hash_function>;
 static void construction(benchmark::State& state) {
   for (auto _ : state) {
      Map map;
-     map.reserve(512);
+     map.reserve(handles.size());
      benchmark::DoNotOptimize(map.size());
   }
 }
 
 static void insert(benchmark::State& state) {
   Map map;
-  map.reserve(512);
+  map.reserve(handles.size());
   for (auto _ : state) {
      for(const auto& h: handles) {
         map[h];
      }
+     map.clear();
      benchmark::DoNotOptimize(map.size());
   }
 }

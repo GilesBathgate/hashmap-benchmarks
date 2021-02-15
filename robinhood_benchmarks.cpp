@@ -25,7 +25,7 @@ public:
 
 Setup setup;
 
-using Map = robin_hood::unordered_map<Handle,int,CGAL::Handle_hash_function>;
+using Map = robin_hood::unordered_flat_map<Handle,int,CGAL::Handle_hash_function>;
 
 static void construction(benchmark::State& state) {
   for (auto _ : state) {
@@ -47,7 +47,22 @@ static void insert(benchmark::State& state) {
   }
 }
 
+static void update(benchmark::State& state) {
+  Map map;
+  map.reserve(handles.size());
+  for(const auto& h: handles)
+        map[h];
+
+  for (auto _ : state) {
+     for(const auto& h: handles) {
+        map[h] = 987;
+     }
+     benchmark::DoNotOptimize(map.size());
+  }
+}
+
 BENCHMARK(construction);
 BENCHMARK(insert);
+BENCHMARK(update);
 
 BENCHMARK_MAIN();

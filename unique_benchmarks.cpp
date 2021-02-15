@@ -45,7 +45,21 @@ static void insert(benchmark::State& state) {
   }
 }
 
+static void update(benchmark::State& state) {
+  Map map(0,handles.size());
+  for(const auto& h: handles)
+        map[h];
+
+  for (auto _ : state) {
+     for(const auto& h: handles) {
+        map[h] = 987;
+     }
+     benchmark::DoNotOptimize(map.size());
+  }
+}
+
 BENCHMARK(construction);
 BENCHMARK(insert);
+BENCHMARK(update);
 
 BENCHMARK_MAIN();

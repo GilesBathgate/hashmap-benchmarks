@@ -37,8 +37,7 @@ static void construction(benchmark::State& state) {
 static void insert(benchmark::State& state) {
   Map map(0,512);
   for (auto _ : state) {
-     for(int i=0; i<50'000; ++i) {
-        const Handle& h=handles[i];
+     for(const auto& h: handles) {
         map[h];
      }
      benchmark::DoNotOptimize(map.size());

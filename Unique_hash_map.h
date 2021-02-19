@@ -172,7 +172,6 @@ namespace boost {
 
 }
 
-#include <CGAL/enable_warnings.h>
 
 #endif // CGAL_UNIQUE_HASH_MAP_H
 // EOF

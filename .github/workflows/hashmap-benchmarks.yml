@@ -1,0 +1,18 @@
+name: benchmarks
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  linux:
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Install Dependencies
+      run: sudo apt-get install -y libbenchmark-dev libbenchmark-tools python3-scipy
+    - name: Make
+      run: make
+    - name: Test
+      run: make test

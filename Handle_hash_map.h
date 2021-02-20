@@ -101,7 +101,7 @@ public:
 
     mapped_type& operator[](const key_type& key)
     {
-        return Base::emplace(key,_default).first->second;
+        return Base::try_emplace(key,_default).first->second;
     }
 
     mapped_type insert(key_type key_begin,key_type key_end,

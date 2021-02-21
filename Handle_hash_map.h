@@ -16,7 +16,7 @@
 #define CGAL_HANDLE_HASH_MAP
 
 #include "Handle_hash_function.h"
-#include "robin_hood.h"
+#include <absl/container/node_hash_map.h>
 #include <cstddef>
 #include <functional>
 
@@ -31,9 +31,9 @@ template <class Key,
           class KeyEqual = std::equal_to<Key>,
           class Allocator = void>
 class Handle_hash_map
-  : private robin_hood::unordered_node_map<Key,T,Hash,KeyEqual>
+  : private absl::node_hash_map<Key,T,Hash,KeyEqual>
 {
-    typedef robin_hood::unordered_node_map<Key,T,Hash,KeyEqual> Base;
+    typedef absl::node_hash_map<Key,T,Hash,KeyEqual> Base;
 
 public:
     // STL compliance

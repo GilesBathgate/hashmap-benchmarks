@@ -101,7 +101,14 @@ public:
 
     mapped_type& operator[](const key_type& key)
     {
+#if __cplusplus >= 201703
         return Base::try_emplace(key,_default).first->second;
+#else
+        return Base::emplace(
+            std::piecewise_construct,
+            std::forward_as_tuple(key),
+            std::forward_as_tuple(_default)).first->second;
+#endif
     }
 
     mapped_type insert(key_type key_begin,key_type key_end,

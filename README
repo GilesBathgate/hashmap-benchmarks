@@ -1,134 +1,134 @@
 clang++ -o unique_benchmarks unique_benchmarks.cpp -O2 -lbenchmark
-clang++ -o robinhood_benchmarks robinhood_benchmarks.cpp -O2 -lbenchmark
-python3 /usr/share/benchmark/compare.py benchmarks ./unique_benchmarks ./robinhood_benchmarks --benchmark_repetitions=10
+clang++ -o robinmap_benchmarks robinmap_benchmarks.cpp -O2 -lbenchmark
+python3 /usr/share/benchmark/compare.py benchmarks ./unique_benchmarks ./robinmap_benchmarks --benchmark_repetitions=10
 --------------------------------------------------------------
 Benchmark                    Time             CPU   Iterations
 --------------------------------------------------------------
-construction            136214 ns       136195 ns         5106
-construction            136884 ns       136880 ns         5106
-construction            136124 ns       136122 ns         5106
-construction            136239 ns       136237 ns         5106
-construction            136098 ns       136097 ns         5106
-construction            135869 ns       135869 ns         5106
-construction            135807 ns       135787 ns         5106
-construction            136557 ns       136555 ns         5106
-construction            136319 ns       136318 ns         5106
-construction            136175 ns       136171 ns         5106
-construction_mean       136229 ns       136223 ns           10
-construction_median     136195 ns       136183 ns           10
-construction_stddev        313 ns          316 ns           10
-insert                 4404214 ns      4403485 ns          158
-insert                 4431841 ns      4431190 ns          158
-insert                 4562804 ns      4562582 ns          158
-insert                 4422873 ns      4422763 ns          158
-insert                 4449638 ns      4449603 ns          158
-insert                 4414357 ns      4414235 ns          158
-insert                 4414838 ns      4414358 ns          158
-insert                 4416186 ns      4415879 ns          158
-insert                 4427758 ns      4427506 ns          158
-insert                 4417066 ns      4416843 ns          158
-insert_mean            4436157 ns      4435844 ns           10
-insert_median          4419969 ns      4419803 ns           10
-insert_stddev            46188 ns        46248 ns           10
-update                  467309 ns       467302 ns         1489
-update                  465327 ns       465316 ns         1489
-update                  467716 ns       467713 ns         1489
-update                  468553 ns       468545 ns         1489
-update                  467061 ns       467049 ns         1489
-update                  464326 ns       464324 ns         1489
-update                  467371 ns       467361 ns         1489
-update                  466911 ns       466899 ns         1489
-update                  465254 ns       465240 ns         1489
-update                  461769 ns       461762 ns         1489
-update_mean             466160 ns       466151 ns           10
-update_median           466986 ns       466974 ns           10
-update_stddev             2013 ns         2013 ns           10
+construction            137066 ns       137018 ns         5045
+construction            137342 ns       137295 ns         5045
+construction            137905 ns       137758 ns         5045
+construction            137625 ns       137573 ns         5045
+construction            138054 ns       137907 ns         5045
+construction            137232 ns       137188 ns         5045
+construction            137438 ns       137382 ns         5045
+construction            137480 ns       137428 ns         5045
+construction            136995 ns       136947 ns         5045
+construction            137309 ns       137216 ns         5045
+construction_mean       137445 ns       137371 ns           10
+construction_median     137390 ns       137338 ns           10
+construction_stddev        339 ns          307 ns           10
+insert                 4471569 ns      4468413 ns          157
+insert                 4503580 ns      4501655 ns          157
+insert                 4485677 ns      4483789 ns          157
+insert                 4836488 ns      4836321 ns          157
+insert                 4468340 ns      4468033 ns          157
+insert                 4443126 ns      4442895 ns          157
+insert                 4440688 ns      4440372 ns          157
+insert                 4458984 ns      4458696 ns          157
+insert                 4443175 ns      4443006 ns          157
+insert                 4444314 ns      4444098 ns          157
+insert_mean            4499594 ns      4498728 ns           10
+insert_median          4463662 ns      4463364 ns           10
+insert_stddev           120192 ns       120313 ns           10
+update                  478734 ns       478721 ns         1469
+update                  476414 ns       476398 ns         1469
+update                  479640 ns       479618 ns         1469
+update                  476599 ns       476587 ns         1469
+update                  479206 ns       479189 ns         1469
+update                  479908 ns       479886 ns         1469
+update                  479492 ns       479483 ns         1469
+update                  478175 ns       478155 ns         1469
+update                  490401 ns       490315 ns         1469
+update                  477380 ns       477365 ns         1469
+update_mean             479595 ns       479572 ns           10
+update_median           478970 ns       478955 ns           10
+update_stddev             3997 ns         3976 ns           10
 --------------------------------------------------------------
 Benchmark                    Time             CPU   Iterations
 --------------------------------------------------------------
-construction              9687 ns         9686 ns        70373
-construction              9652 ns         9652 ns        70373
-construction              9593 ns         9593 ns        70373
-construction              9600 ns         9599 ns        70373
-construction              9580 ns         9580 ns        70373
-construction             10664 ns        10664 ns        70373
-construction             10663 ns        10663 ns        70373
-construction             10641 ns        10641 ns        70373
-construction             10789 ns        10789 ns        70373
-construction              9591 ns         9591 ns        70373
-construction_mean        10046 ns        10046 ns           10
-construction_median       9669 ns         9669 ns           10
-construction_stddev        556 ns          556 ns           10
-insert                  942199 ns       942169 ns          745
-insert                  946195 ns       946165 ns          745
-insert                  941914 ns       941901 ns          745
-insert                  945822 ns       945764 ns          745
-insert                  948575 ns       948540 ns          745
-insert                  949021 ns       948973 ns          745
-insert                  948959 ns       948911 ns          745
-insert                  950088 ns       950038 ns          745
-insert                  953512 ns       953491 ns          745
-insert                  948733 ns       948717 ns          745
-insert_mean             947502 ns       947467 ns           10
-insert_median           948654 ns       948628 ns           10
-insert_stddev             3556 ns         3553 ns           10
-update                  353455 ns       353448 ns         1968
-update                  354844 ns       354838 ns         1968
-update                  355194 ns       355180 ns         1968
-update                  354885 ns       354880 ns         1968
-update                  352655 ns       352648 ns         1968
-update                  357651 ns       357643 ns         1968
-update                  355975 ns       355969 ns         1968
-update                  356115 ns       356104 ns         1968
-update                  354006 ns       353995 ns         1968
-update                  355421 ns       355414 ns         1968
-update_mean             355020 ns       355012 ns           10
-update_median           355039 ns       355030 ns           10
-update_stddev             1428 ns         1427 ns           10
-RUNNING: ./unique_benchmarks --benchmark_repetitions=10 --benchmark_out=/tmp/tmpmda_te_c
-RUNNING: ./robinhood_benchmarks --benchmark_repetitions=10 --benchmark_out=/tmp/tmpibypm6dk
-Comparing ./unique_benchmarks to ./robinhood_benchmarks
+construction            184901 ns       184832 ns         3723
+construction            184171 ns       184106 ns         3723
+construction            184021 ns       183948 ns         3723
+construction            184038 ns       183964 ns         3723
+construction            184927 ns       184790 ns         3723
+construction            183827 ns       183757 ns         3723
+construction            184159 ns       184086 ns         3723
+construction            183963 ns       183891 ns         3723
+construction            184047 ns       183972 ns         3723
+construction            185136 ns       185064 ns         3723
+construction_mean       184319 ns       184241 ns           10
+construction_median     184103 ns       184029 ns           10
+construction_stddev        475 ns          467 ns           10
+insert                  599134 ns       598691 ns         1171
+insert                  598794 ns       598572 ns         1171
+insert                  598112 ns       597874 ns         1171
+insert                  599030 ns       598812 ns         1171
+insert                  598243 ns       598030 ns         1171
+insert                  581647 ns       581413 ns         1171
+insert                  581180 ns       581164 ns         1171
+insert                  582164 ns       582150 ns         1171
+insert                  580758 ns       580743 ns         1171
+insert                  580869 ns       580855 ns         1171
+insert_mean             589993 ns       589830 ns           10
+insert_median           590138 ns       590012 ns           10
+insert_stddev             9152 ns         9041 ns           10
+update                  403512 ns       403500 ns         1734
+update                  402968 ns       402956 ns         1734
+update                  408878 ns       408857 ns         1734
+update                  403271 ns       403258 ns         1734
+update                  403046 ns       403039 ns         1734
+update                  387467 ns       387450 ns         1734
+update                  389467 ns       389452 ns         1734
+update                  390870 ns       390858 ns         1734
+update                  391392 ns       391372 ns         1734
+update                  391742 ns       391731 ns         1734
+update_mean             397261 ns       397248 ns           10
+update_median           397355 ns       397344 ns           10
+update_stddev             7736 ns         7736 ns           10
+RUNNING: ./unique_benchmarks --benchmark_repetitions=10 --benchmark_out=/tmp/tmpx0mysp5b
+RUNNING: ./robinmap_benchmarks --benchmark_repetitions=10 --benchmark_out=/tmp/tmpkfhnit_y
+Comparing ./unique_benchmarks to ./robinmap_benchmarks
 Benchmark                             Time             CPU      Time Old      Time New       CPU Old       CPU New
 ------------------------------------------------------------------------------------------------------------------
-construction                       -0.9289         -0.9289        136214          9687        136195          9686
-construction                       -0.9295         -0.9295        136884          9652        136880          9652
-construction                       -0.9295         -0.9295        136124          9593        136122          9593
-construction                       -0.9295         -0.9295        136239          9600        136237          9599
-construction                       -0.9296         -0.9296        136098          9580        136097          9580
-construction                       -0.9215         -0.9215        135869         10664        135869         10664
-construction                       -0.9215         -0.9215        135807         10663        135787         10663
-construction                       -0.9221         -0.9221        136557         10641        136555         10641
-construction                       -0.9209         -0.9209        136319         10789        136318         10789
-construction                       -0.9296         -0.9296        136175          9591        136171          9591
+construction                       +0.3490         +0.3490        137066        184901        137018        184832
+construction                       +0.3410         +0.3410        137342        184171        137295        184106
+construction                       +0.3344         +0.3353        137905        184021        137758        183948
+construction                       +0.3372         +0.3372        137625        184038        137573        183964
+construction                       +0.3395         +0.3400        138054        184927        137907        184790
+construction                       +0.3395         +0.3395        137232        183827        137188        183757
+construction                       +0.3399         +0.3400        137438        184159        137382        184086
+construction                       +0.3381         +0.3381        137480        183963        137428        183891
+construction                       +0.3435         +0.3434        136995        184047        136947        183972
+construction                       +0.3483         +0.3487        137309        185136        137216        185064
 construction_pvalue                 0.0002          0.0002      U Test, Repetitions: 10 vs 10
-construction_mean                  -0.9263         -0.9263        136229         10046        136223         10046
-construction_median                -0.9290         -0.9290        136195          9669        136183          9669
-construction_stddev                +0.7741         +0.7613           313           556           316           556
-insert                             -0.7861         -0.7860       4404214        942199       4403485        942169
-insert                             -0.7865         -0.7865       4431841        946195       4431190        946165
-insert                             -0.7936         -0.7936       4562804        941914       4562582        941901
-insert                             -0.7862         -0.7862       4422873        945822       4422763        945764
-insert                             -0.7868         -0.7868       4449638        948575       4449603        948540
-insert                             -0.7850         -0.7850       4414357        949021       4414235        948973
-insert                             -0.7851         -0.7850       4414838        948959       4414358        948911
-insert                             -0.7849         -0.7849       4416186        950088       4415879        950038
-insert                             -0.7847         -0.7846       4427758        953512       4427506        953491
-insert                             -0.7852         -0.7852       4417066        948733       4416843        948717
+construction_mean                  +0.3410         +0.3412        137445        184319        137371        184241
+construction_median                +0.3400         +0.3400        137390        184103        137338        184029
+construction_stddev                +0.4008         +0.5210           339           475           307           467
+insert                             -0.8660         -0.8660       4471569        599134       4468413        598691
+insert                             -0.8670         -0.8670       4503580        598794       4501655        598572
+insert                             -0.8667         -0.8667       4485677        598112       4483789        597874
+insert                             -0.8761         -0.8762       4836488        599030       4836321        598812
+insert                             -0.8661         -0.8662       4468340        598243       4468033        598030
+insert                             -0.8691         -0.8691       4443126        581647       4442895        581413
+insert                             -0.8691         -0.8691       4440688        581180       4440372        581164
+insert                             -0.8694         -0.8694       4458984        582164       4458696        582150
+insert                             -0.8693         -0.8693       4443175        580758       4443006        580743
+insert                             -0.8693         -0.8693       4444314        580869       4444098        580855
 insert_pvalue                       0.0002          0.0002      U Test, Repetitions: 10 vs 10
-insert_mean                        -0.7864         -0.7864       4436157        947502       4435844        947467
-insert_median                      -0.7854         -0.7854       4419969        948654       4419803        948628
-insert_stddev                      -0.9230         -0.9232         46188          3556         46248          3553
-update                             -0.2436         -0.2436        467309        353455        467302        353448
-update                             -0.2374         -0.2374        465327        354844        465316        354838
-update                             -0.2406         -0.2406        467716        355194        467713        355180
-update                             -0.2426         -0.2426        468553        354885        468545        354880
-update                             -0.2449         -0.2449        467061        352655        467049        352648
-update                             -0.2297         -0.2298        464326        357651        464324        357643
-update                             -0.2383         -0.2383        467371        355975        467361        355969
-update                             -0.2373         -0.2373        466911        356115        466899        356104
-update                             -0.2391         -0.2391        465254        354006        465240        353995
-update                             -0.2303         -0.2303        461769        355421        461762        355414
+insert_mean                        -0.8689         -0.8689       4499594        589993       4498728        589830
+insert_median                      -0.8678         -0.8678       4463662        590138       4463364        590012
+insert_stddev                      -0.9239         -0.9249        120192          9152        120313          9041
+update                             -0.1571         -0.1571        478734        403512        478721        403500
+update                             -0.1542         -0.1542        476414        402968        476398        402956
+update                             -0.1475         -0.1475        479640        408878        479618        408857
+update                             -0.1539         -0.1539        476599        403271        476587        403258
+update                             -0.1589         -0.1589        479206        403046        479189        403039
+update                             -0.1926         -0.1926        479908        387467        479886        387450
+update                             -0.1877         -0.1878        479492        389467        479483        389452
+update                             -0.1826         -0.1826        478175        390870        478155        390858
+update                             -0.2019         -0.2018        490401        391392        490315        391372
+update                             -0.1794         -0.1794        477380        391742        477365        391731
 update_pvalue                       0.0002          0.0002      U Test, Repetitions: 10 vs 10
-update_mean                        -0.2384         -0.2384        466160        355020        466151        355012
-update_median                      -0.2397         -0.2397        466986        355039        466974        355030
-update_stddev                      -0.2908         -0.2908          2013          1428          2013          1427
+update_mean                        -0.1717         -0.1717        479595        397261        479572        397248
+update_median                      -0.1704         -0.1704        478970        397355        478955        397344
+update_stddev                      +0.9354         +0.9460          3997          7736          3976          7736

@@ -16,7 +16,7 @@
 #define CGAL_HANDLE_HASH_MAP
 
 #include "Handle_hash_function.h"
-#include "robin_hood.h"
+#include "robin_map.h"
 #include <cstddef>
 #include <functional>
 
@@ -31,9 +31,9 @@ template <class Key,
           class KeyEqual = std::equal_to<Key>,
           class Allocator = void>
 class Handle_hash_map
-  : private robin_hood::unordered_node_map<Key,T,Hash,KeyEqual>
+  : private tsl::robin_map<Key,T,Hash,KeyEqual>
 {
-    typedef robin_hood::unordered_node_map<Key,T,Hash,KeyEqual> Base;
+    typedef tsl::robin_map<Key,T,Hash,KeyEqual> Base;
 
 public:
     // STL compliance
@@ -101,7 +101,7 @@ public:
 
     mapped_type& operator[](const key_type& key)
     {
-        return Base::try_emplace(key,_default).first->second;
+        return const_cast<mapped_type&>(Base::try_emplace(key,_default).first->second);
     }
 
     mapped_type insert(key_type key_begin,key_type key_end,

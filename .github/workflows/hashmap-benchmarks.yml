@@ -10,6 +10,8 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
+    - name: Add focal PPA
+      run: sudo add-apt-repository ppa:bleedingedge/focal-bleed && sudo apt-get update
     - name: Install Dependencies
       run: sudo apt-get install -y libbenchmark-dev libbenchmark-tools python3-scipy libabsl-dev
     - name: Make

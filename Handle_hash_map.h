@@ -42,6 +42,7 @@ public:
     typedef std::size_t                   size_type;
     typedef Hash                          hasher;
     typedef KeyEqual                      key_equal;
+    typedef typename Base::iterator       iterator;
     typedef typename Base::const_iterator const_iterator;
 
     // Backwards compatibility
@@ -99,15 +100,28 @@ public:
         return _default;
     }
 
+#if __cplusplus < 201703
+    template <typename... Args>
+    std::pair<iterator, bool> try_emplace(const key_type& key, Args&&... args)
+    {
+      iterator it = Base::find(key);
+      if (it == Base::end()) {
+          it = Base::emplace(std::piecewise_construct,
+                        std::forward_as_tuple(key),
+                        std::forward_as_tuple(
+                          std::forward<Args>(args)...)).first;
+          return {it, true};
+      }
+      return {it, false};
+    }
+#endif
+
     mapped_type& operator[](const key_type& key)
     {
-#if __cplusplus >= 201703
-        return Base::try_emplace(key,_default).first->second;
+#if __cplusplus < 201703
+        return try_emplace(key,_default).first->second;
 #else
-        return Base::emplace(
-            std::piecewise_construct,
-            std::forward_as_tuple(key),
-            std::forward_as_tuple(_default)).first->second;
+        return Base::try_emplace(key,_default).first->second;
 #endif
     }
 

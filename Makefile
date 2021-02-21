@@ -1,5 +1,5 @@
 CXX=clang++
-CXXFLAGS=-O2 -lbenchmark -std=c++17
+CXXFLAGS=-O2 -lbenchmark
 COMPARE=python3 /usr/share/benchmark/compare.py
 
 all: unique_benchmarks unordered_map_benchmarks

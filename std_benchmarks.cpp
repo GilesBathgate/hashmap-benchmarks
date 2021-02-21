@@ -1,5 +1,5 @@
 #include <benchmark/benchmark.h>
-#include "Unique_hash_map.h"
+#include "Std_hash_map.h"
 #include "Handle_hash_function.h"
 
 class Data
@@ -25,7 +25,7 @@ public:
 
 Setup setup;
 
-using Map = CGAL::Unique_hash_map<Handle,int,CGAL::Handle_hash_function>;
+using Map = CGAL::internal::Std_hash_map<Handle,int,CGAL::Handle_hash_function>;
 
 static void construction(benchmark::State& state) {
   for (auto _ : state) {

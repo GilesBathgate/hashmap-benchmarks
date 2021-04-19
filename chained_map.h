@@ -274,8 +274,8 @@ template <typename T, typename Allocator>
 chained_map<T, Allocator>::chained_map(std::size_t n) :
   nullptrKEY(0), NONnullptrKEY(1), old_table(0)
 {
-  if (n < 512)
-    init_table(512);
+  if (n < 32)
+    init_table(32);
   else {
     std::size_t ts = 1;
     while (ts < n) ts <<= 1;
@@ -337,7 +337,7 @@ void chained_map<T, Allocator>::clear()
     destroy(item);
   alloc.deallocate(table, table_end - table);
 
-  init_table(512);
+  init_table(32);
 }
 
 template <typename T, typename Allocator>
